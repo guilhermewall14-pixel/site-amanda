@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#170923">
+<title>Para Amanda 💜</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at top, #54277a, transparent 60%),
+        linear-gradient(160deg, #170923, #241039, #10091c);
+    color: #fff5ff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+#ceu {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.estrela {
+    position: absolute;
+    bottom: -30px;
+    animation: subir linear infinite;
+    opacity: .7;
+}
+
+@keyframes subir {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+    padding: 24px 17px 50px;
+    margin: auto;
+}
+
+header {
+    padding: 30px 5px;
+    animation: surgir .9s ease;
+}
+
+.etiqueta {
+    display: inline-block;
+    padding: 9px 15px;
+    border: 1px solid #d4a7ff55;
+    border-radius: 30px;
+    color: #e7c8ff;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(36px, 10vw, 55px);
+    background: linear-gradient(120deg, #fff, #d6a1ff, #ffb9e9);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    line-height: 1.15;
+}
+
+header p {
+    color: #d7c2e8;
+    line-height: 1.8;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.gengar {
+    width: 145px;
+    height: 145px;
+    object-fit: contain;
+    margin: 18px auto 0;
+    filter: drop-shadow(0 0 22px #ae67ff77);
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50% { transform: translateY(-12px) rotate(4deg); }
+}
+
+.painel {
+    border: 1px solid #d1a4ff40;
+    background: linear-gradient(145deg, #ffffff0e, #ffffff04);
+    border-radius: 25px;
+    padding: 23px 17px;
+    box-shadow: 0 15px 40px #08021130;
+}
+
+.progresso {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.barra {
+    height: 6px;
+    border-radius: 20px;
+    background: #ffffff15;
+    flex: 1;
+    overflow: hidden;
+}
+
+#barraDentro {
+    width: 0%;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #9858df, #efb5ff);
+    transition: width .6s ease;
+}
+
+#contador {
+    color: #d8b5fa;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+#conteudo {
+    min-height: 355px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: surgir .6s ease;
+}
+
+#conteudo.saindo {
+    animation: sair .25s ease forwards;
+}
+
+@keyframes surgir {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes sair {
+    to {
+        opacity: 0;
+        transform: translateY(-12px) scale(.98);
+    }
+}
+
+.mini-gengar {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    margin: 0 auto 12px;
+    filter: drop-shadow(0 0 13px #a75bff66);
+}
+
+h2 {
+    color: #f0d9ff;
+    font-size: 23px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.descricao {
+    color: #d7c5e8;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+.alternativas {
+    display: grid;
+    gap: 11px;
+}
+
+.alternativa {
+    width: 100%;
+    padding: 16px 13px;
+    background: #9e63d51a;
+    border: 1px solid #d1a4ff48;
+    border-radius: 16px;
+    color: white;
+    font-size: 14px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background .2s, transform .2s, border .2s;
+    animation: surgir .5s ease both;
+    cursor: pointer;
+}
+
+.alternativa:nth-child(2) { animation-delay: .07s; }
+.alternativa:nth-child(3) { animation-delay: .14s; }
+.alternativa:nth-child(4) { animation-delay: .21s; }
+
+.alternativa:active {
+    transform: scale(.97);
+    background: #a96ae744;
+    border-color: #e6c3ff;
+}
+
+.alternativa .emoji {
+    font-size: 23px;
+    flex-shrink: 0;
+}
+
+#afeto {
+    display: none;
+    padding: 24px 15px;
+    border: 1px solid #dcb3ff55;
+    border-radius: 21px;
+    background: linear-gradient(145deg, #9e64d62c, #ffffff05);
+    margin-top: 17px;
+}
+
+#afeto.ativo {
+    display: block;
+    animation: surgir .7s ease;
+}
+
+#afeto h3 {
+    color: #f1d4ff;
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+#mensagemAfeto {
+    color: #f0e4fa;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.botao {
+    border: 1px solid #e1bfff66;
+    border-radius: 30px;
+    padding: 14px 24px;
+    background: linear-gradient(120deg, #8044b7, #ae6ce3);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.botao:active {
+    transform: scale(.96);
+}
+
+#final {
+    display: none;
+}
+
+#final.ativo {
+    display: block;
+    animation: surgir 1s ease;
+}
+
+.carta {
+    padding: 25px 18px;
+    border: 1px solid #ddb5ff55;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #8d4fba35, #ffffff08);
+}
+
+.carta p {
+    font-size: 15px;
+    line-height: 2;
+    color: #f1e4fc;
+}
+
+#chuva {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.particula-amor {
+    position: absolute;
+    top: -35px;
+    animation: cair linear forwards;
+}
+
+@keyframes cair {
+    to {
+        transform: translateY(110vh) rotate(400deg);
+        opacity: 0;
+    }
+}
+
+footer {
+    padding: 25px 5px;
+    color: #b8a0cb;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+@media (max-width: 380px) {
+    main { padding-left: 11px; padding-right: 11px; }
+    .painel { padding: 18px 12px; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="ceu"></div>
+<div id="chuva"></div>
+
+<main>
+<header>
+    <span class="etiqueta">UM PEQUENO UNIVERSO ROXO</span>
+
+    <h1>Oi, Amanda 💜</h1>
+
+    <p>
+        Preparei algumas coisinhas para você.
+        Escolha suas respostas, descubra pequenas mensagens
+        e lembre-se de que você é importante.
+    </p>
+
+    <img class="gengar"
+         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png"
+         alt="Gengar"
+         onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png'">
+</header>
+
+<section class="painel" id="jornada">
+
+    <div class="progresso">
+        <div class="barra">
+            <div id="barraDentro"></div>
+        </div>
+        <span id="contador">Começando...</span>
+    </div>
+
+    <div id="conteudo"></div>
+
+    <div id="afeto" aria-live="polite">
+        <img class="mini-gengar"
+             src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png"
+             alt="Gengar">
+
+        <h3 id="tituloAfeto"></h3>
+        <p id="mensagemAfeto"></p>
+
+        <button class="botao" id="proximo" onclick="avancar()">
+            Descobrir a próxima ✨
+        </button>
+    </div>
+
+</section>
+
+<section id="final">
+    <div class="carta">
+        <img class="gengar"
+             src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png"
+             alt="Gengar">
+
+        <h2>Uma última coisa, Lua... 🌙</h2>
+
+        <p>
+            Amanda, eu queria que você soubesse o quanto
+            fico feliz por ter você na minha vida.
+
+            <br><br>
+
+            Você é alguém que eu valorizo de verdade.
+            Gosto das nossas conversas, dos momentos que
+            compartilhamos e do fato de poder conhecer
+            um pouquinho mais de você.
+
+            <br><br>
+
+            Você não precisa estar feliz todos os dias.
+            Não precisa ter todas as respostas nem fingir
+            que tudo está bem quando não estiver.
+
+            <br><br>
+
+            Espero que a vida te dê muitos motivos para sorrir,
+            pessoas que te tratem com carinho e momentos
+            em que você possa simplesmente descansar.
+
+            <br><br>
+
+            E, se algum dia você esquecer o quanto é importante,
+            espero que se lembre de que existe alguém que
+            agradece por ter você por perto.
+
+            <br><br>
+
+            <strong style="color:#edc8ff">
+                Você tem um lugar especial na minha vida,
+                minha Lua. Obrigado por existir. 💜
+            </strong>
+        </p>
+
+        <button class="botao" onclick="chuvaDeAmor()">
+            Gengar, faça sua magia! 👻
+        </button>
+    </div>
+</section>
+
+<footer>
+    Feito com carinho, especialmente para você.<br>
+    Um abraço em forma de site. 💜
+</footer>
+
+</main>
+
+<script>
+// Fundo estrelado
+
+const ceu = document.getElementById("ceu");
+const simbolos = ["✦", "✧", "⋆", "·", "💜"];
+
+for (let i = 0; i < 30; i++) {
+    const estrela = document.createElement("span");
+    estrela.className = "estrela";
+    estrela.textContent =
+        simbolos[Math.floor(Math.random() * simbolos.length)];
+
+    estrela.style.left = Math.random() * 100 + "%";
+    estrela.style.fontSize = (10 + Math.random() * 12) + "px";
+    estrela.style.animationDuration = (13 + Math.random() * 17) + "s";
+    estrela.style.animationDelay = (-Math.random() * 25) + "s";
+
+    ceu.appendChild(estrela);
+}
+
+// Perguntas: uma de cada vez
+
+const perguntas = [
+    {
+        nome: "Amanda",
+        pergunta: "Como está seu coração hoje?",
+        descricao: "Não precisa escolher a resposta perfeita. Escolha a que mais combina com você.",
+        alternativas: [
+            ["😊", "Estou me sentindo bem"],
+            ["🌧️", "Um pouco cansada"],
+            ["💭", "Com muita coisa na cabeça"],
+            ["🫂", "Só queria um carinho"]
+        ],
+        respostas: [
+            {
+                titulo: "Que bom, Amanda! 💜",
+                texto: "Espero que você encontre muitos outros motivos para sorrir hoje. E que os momentos bons durem bastante."
+            },
+            {
+                titulo: "Ei, Amanda, pegue leve consigo mesma. 🌷",
+                texto: "Você não precisa dar conta de tudo de uma vez. Descansar também é importante. Espero que consiga encontrar um momento tranquilo só seu."
+            },
+            {
+                titulo: "Vamos com calma, Lua. 🌙",
+                texto: "Você não precisa organizar todos os pensamentos agora. Um passo de cada vez já é suficiente. Espero que esta pequena pausa te ajude a respirar."
+            },
+            {
+                titulo: "Um abraço em forma de palavras. 🫂",
+                texto: "Se eu pudesse, te ofereceria um abraço daqueles que fazem o mundo parecer um pouco menos pesado. Você merece carinho, cuidado e compreensão."
+            }
+        ]
+    },
+    {
+        nome: "Amanda",
+        pergunta: "O que você gostaria de receber agora?",
+        descricao: "O Gengar preparou algumas opções especiais para você.",
+        alternativas: [
+            ["💌", "Uma mensagem carinhosa"],
+            ["🌙", "Um momento de paz"],
+            ["🦋", "Algo para me distrair"],
+            ["💜", "Uma lembrança de que importo"]
+        ],
+        respostas: [
+            {
+                titulo: "Você merece ouvir coisas boas. 💌",
+                texto: "Amanda, espero que nunca te faltem palavras gentis e pessoas que saibam reconhecer o valor que você tem. E espero que você também consiga oferecer essa gentileza a si mesma."
+            },
+            {
+                titulo: "Respire, minha Lua. 🌙",
+                texto: "Por alguns instantes, deixe as cobranças de lado. Você pode ir devagar. Nem todos os dias precisam ser extraordinários para terem valor."
+            },
+            {
+                titulo: "Gengar entrou em ação! 👻",
+                texto: "Missão oficial: encontrar algo bobo que te faça sorrir. Pode ser um vídeo engraçado, um desenho, uma música ou uma conversa divertida. O fantasminha roxo acredita no seu potencial!"
+            },
+            {
+                titulo: "Você faz diferença. 💜",
+                texto: "Sua presença importa. Você não precisa ser perfeita nem estar sempre disponível para merecer afeto. Eu valorizo você por ser quem é e fico feliz por ter você na minha vida."
+            }
+        ]
+    },
+    {
+        nome: "Lua",
+        pergunta: "Se pudesse escolher um pequeno presente para si mesma...",
+        descricao: "Pense no que faria bem para você neste momento.",
+        alternativas: [
+            ["🌸", "Um dia tranquilo"],
+            ["✨", "Uma surpresa bonita"],
+            ["🫂", "Um abraço apertado"],
+            ["🌌", "Um céu cheio de estrelas"]
+        ],
+        respostas: [
+            {
+                titulo: "Você merece tranquilidade, Lua. 🌸",
+                texto: "Que existam dias em que você possa fazer as coisas no seu ritmo, rir sem preocupação e descansar sem sentir que precisa provar alguma coisa."
+            },
+            {
+                titulo: "Que a vida te surpreenda bonito. ✨",
+                texto: "Espero que você encontre pequenas alegrias inesperadas: uma mensagem querida, uma música perfeita para o momento ou uma lembrança que faça você sorrir."
+            },
+            {
+                titulo: "Um abraço de coração. 🫂",
+                texto: "Tem dias em que palavras não resolvem tudo, e tudo bem. Às vezes, ser ouvida, acolhida e tratada com carinho já faz diferença. Você merece isso."
+            },
+            {
+                titulo: "Para minha Lua. 🌌",
+                texto: "Se cada estrela pudesse carregar um desejo bom para você, eu desejaria que nunca te faltassem esperança, carinho, amizades verdadeiras e motivos para continuar descobrindo as coisas bonitas da vida."
+            }
+        ]
+    },
+    {
+        nome: "Amanda",
+        pergunta: "Posso te contar uma coisa importante?",
+        descricao: "Essa última pergunta tem uma mensagem especial preparada para você.",
+        alternativas: [
+            ["💜", "Pode contar!"],
+            ["👻", "O Gengar já sabe?"],
+            ["🌙", "Estou curiosa..."],
+            ["🦋", "Quero descobrir!"]
+        ],
+        respostas: [
+            {
+                titulo: "Então escuta essa, Amanda. 💜",
+                texto: "Você é importante para mim. Não é preciso fazer algo grandioso para merecer carinho. Sua presença, nossas conversas e os momentos que compartilhamos já têm valor para mim."
+            },
+            {
+                titulo: "O Gengar é fofoqueiro! KKKKK 👻",
+                texto: "Ele já sabia que eu estava preparando um cantinho especial para você! Mas agora é minha vez de falar: Amanda, fico feliz por ter conhecido você e quero que tenha muitas razões para sorrir."
+            },
+            {
+                titulo: "Minha Lua curiosa. 🌙",
+                texto: "A verdade é que eu valorizo muito você. Talvez nem sempre encontre as palavras certas, mas quero que saiba que sua presença faz diferença na minha vida."
+            },
+            {
+                titulo: "Surpresa desbloqueada! 🦋",
+                texto: "Você chegou até aqui e agora merece a mensagem final. Espero que este pequeno universo roxo tenha deixado seu dia um pouquinho mais leve. Fiz tudo pensando em você."
+            }
+        ]
+    }
+];
+
+let etapa = 0;
+let respostaEscolhida = false;
+
+const conteudo = document.getElementById("conteudo");
+const afeto = document.getElementById("afeto");
+
+function renderizar() {
+    respostaEscolhida = false;
+    afeto.classList.remove("ativo");
+
+    if (etapa >= perguntas.length) {
+        document.getElementById("jornada").style.display = "none";
+        document.getElementById("final").classList.add("ativo");
+        document.getElementById("barraDentro").style.width = "100%";
+        document.getElementById("contador").textContent = "Concluído 💜";
+        chuvaDeAmor();
+        return;
+    }
+
+    const p = perguntas[etapa];
+
+    document.getElementById("barraDentro").style.width =
+        (etapa / perguntas.length * 100) + "%";
+
+    document.getElementById("contador").textContent =
+        (etapa + 1) + " de " + perguntas.length;
+
+    conteudo.classList.remove("saindo");
+
+    conteudo.innerHTML = `
+        <img class="mini-gengar"
+             src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png"
+             alt="Gengar">
+
+        <h2>${p.pergunta}</h2>
+        <p class="descricao">${p.descricao}</p>
+
+        <div class="alternativas">
+            ${p.alternativas.map((a, i) => `
+                <button class="alternativa" onclick="responder(${i})">
+                    <span class="emoji">${a[0]}</span>
+                    <span>${a[1]}</span>
+                </button>
+            `).join("")}
+        </div>
+    `;
+}
+
+function responder(indice) {
+    if (respostaEscolhida) return;
+    respostaEscolhida = true;
+
+    const p = perguntas[etapa];
+    const resposta = p.respostas[indice];
+
+    conteudo.classList.add("saindo");
+
+    setTimeout(() => {
+        conteudo.style.display = "none";
+
+        document.getElementById("tituloAfeto").textContent =
+            resposta.titulo;
+
+        document.getElementById("mensagemAfeto").textContent =
+            resposta.texto;
+
+        document.getElementById("proximo").textContent =
+            etapa === perguntas.length - 1
+                ? "Ver minha surpresa final 💜"
+                : "Próxima surpresa ✨";
+
+        afeto.classList.add("ativo");
+    }, 250);
+}
+
+function avancar() {
+    etapa++;
+
+    afeto.classList.remove("ativo");
+    conteudo.style.display = "flex";
+    conteudo.classList.remove("saindo");
+
+    renderizar();
+
+    document.getElementById("jornada").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+// Chuva de corações e estrelas
+
+function chuvaDeAmor() {
+    const area = document.getElementById("chuva");
+    const emojis = ["💜", "👻", "✨", "🌙", "⭐", "💗"];
+
+    for (let i = 0; i < 45; i++) {
+        const item = document.createElement("span");
+
+        item.className = "particula-amor";
+        item.textContent =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+        item.style.left = Math.random() * 100 + "%";
+        item.style.fontSize = (15 + Math.random() * 17) + "px";
+        item.style.animationDuration = (2.5 + Math.random() * 2) + "s";
+        item.style.animationDelay = Math.random() * .8 + "s";
+
+        area.appendChild(item);
+
+        setTimeout(() => item.remove(), 5500);
+    }
+}
+
+// Iniciar a jornada
+renderizar();
+</script>
+
+</body>
+</html>
+          
